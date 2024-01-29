@@ -1,0 +1,29 @@
+// Solicitar nombre del alumno
+var nombreAlumno = prompt("Ingrese el nombre del alumno:");
+
+// Solicitar las tres notas al usuario
+var nota1 = parseFloat(prompt("Ingrese la primera nota:"));
+var nota2 = parseFloat(prompt("Ingrese la segunda nota:"));
+var nota3 = parseFloat(prompt("Ingrese la tercera nota:"));
+
+// Verificar rango válido de las notas (0 a 10)
+var notasValidas = true;
+if (nota1 < 0 || nota1 > 10 || isNaN(nota1) ||
+    nota2 < 0 || nota2 > 10 || isNaN(nota2) ||
+    nota3 < 0 || nota3 > 10 || isNaN(nota3)) {
+    notasValidas = false;
+}
+
+// Calcular el promedio si las notas son válidas
+if (notasValidas) {
+    var promedio = (nota1 + nota2 + nota3) / 3;
+
+    // Evaluar si el promedio es mayor o igual a 7
+    if (promedio >= 7) {
+        console.log(nombreAlumno + ", ¡felicidades! Has aprobado con un promedio de " + promedio.toFixed(2) + ".");
+    } else {
+        console.log(nombreAlumno + ", gracias por tu esfuerzo. Nos vemos pronto en clase. El promedio obtenido es " + promedio.toFixed(2) + ".");
+    }
+} else {
+    console.log("Error: Las notas ingresadas no están en el rango válido (0 a 10).");
+}
